@@ -26,14 +26,14 @@ Class UserController extends Controller {
 
         return $this->successResponse($users);
     }
-
+    
     public function addUser(Request $request){
         
         $rules = [
             'username' => 'required|max:20',
             'password' => 'required|max:20',
         ];
-
+        
         $this->validate($request,$rules);
 
         $users = User::create($request->all());
@@ -103,14 +103,17 @@ Class UserController extends Controller {
     }
 
 
-    public function checkUser(Request $request){
+    public function checkUser(){
         $users = User::all();
+        $user = $_GET['user'];
+        $pass = $_GET['pass'];
 
         for($i = 0; $i < count($users);$i++){
-            if($users[$i]->username == $request->user and $users[$i]->password == $request->pass){
+            if($users[$i]->username == $user and $users[$i]->password == $pass){
                 return redirect()->route('welcome',$users[$i]->username);
             }
         }
+        return 'No users found or Wrong Credentials';
         
         
     }

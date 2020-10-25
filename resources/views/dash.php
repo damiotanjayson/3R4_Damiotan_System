@@ -1,7 +1,7 @@
 <html lang = "en">
    
    <head>
-      <title>Login</title>
+      <title>Dashboard</title>
    </head>
 	
    <body>

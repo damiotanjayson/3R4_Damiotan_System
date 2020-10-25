@@ -21,8 +21,9 @@ $router->get('/', function () use ($router) {
 $router->get('/userDisplay','userController@displayUser');
 $router->post('/userAdd','userController@addUser');
 $router->put('/userUpdate/{id}','userController@updateUser');
-$router->delete('/userDelete/{id}','userController@deleteUser');
 $router->get('/userView/{id}','userController@readUser');
+$router->delete('/userDelete/{id}','userController@deleteUser');
+
 
 
 //Login
@@ -36,7 +37,7 @@ $router->get('/dashboard', [
 
 $router->get('/check','userController@checkUser');
 
-$router->get('/welcome/{username}', [
+$router->get('/welcome', [
     'as' => 'welcome', 'uses' => 'userController@welcomeUser'
 ]);
 
